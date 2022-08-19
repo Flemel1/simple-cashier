@@ -1,16 +1,19 @@
 menus = []
+prices = []
 
 
 def insert_menu():
     user_input = input("Insert Your Menu: ")
+    price_input = int(input("Insert Your price: "))
     menus.append(user_input.title())
+    prices.append(price_input)
 
 def print_menu():
     if (len(menus) == 0):
         print("Menu is empty, insert at least 1 menu")
     else:
         for index, food in enumerate(menus):
-            print(f'{index + 1}. {food}')
+            print(f'{index + 1}. {food} Rp.{prices[index]}')
 
 def remove_menu():
     for index, food in enumerate(menus):
@@ -23,6 +26,7 @@ def remove_menu():
         user_input = int(input(f'Choose your food to remove 1 - {len(menus)}: '))
 
     menus.pop(user_input - 1)
+    prices.pop(user_input - 1)
     print('Your food is removed!')
 
 def menu():
